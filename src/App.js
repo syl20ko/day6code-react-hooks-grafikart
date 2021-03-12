@@ -2,24 +2,30 @@ import React, { useState } from "react";
 import "./App.css";
 
 function Counter() {
-  const [state, setState] = useState({
-    a: 1,
-  });
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   const handleClick = function (e) {
     e.preventDefault();
-    setState((state) => {
-      return { ...state, count: 10 };
-    });
+    setCount(count => count + 1);
   };
 
-  return <div onClick={handleClick}>{JSON.stringify(state)}</div>;
+  const handleClick2 = function (e) {
+    e.preventDefault();
+    setCount2(count => count + 2);
+  };
+
+  return (
+    <>
+      <button onClick={handleClick}>Incrémenter {count}</button>
+      <button onClick={handleClick2}>Incrémenter {count2}</button>
+    </>
+  );
 }
 
 function App() {
   return (
     <div>
-      <Counter />
       <Counter />
     </div>
   );

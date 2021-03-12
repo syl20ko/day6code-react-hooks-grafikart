@@ -9,16 +9,23 @@ function useIncrement(initial, step) {
   return [count, increment];
 }
 
-function Counter() {
+function CounterBtn() {
   const [count, increment] = useIncrement(0, 5);
 
   return <button onClick={increment}>Incrémenter {count}</button>;
 }
 
+function CounterLink() {
+  const [count, increment] = useIncrement(0, 9);
+
+  return <a onClick={increment}>Incrémenter {count}</a>;
+}
+
 function App() {
   return (
     <div>
-      <Counter />
+      <CounterBtn />
+      <CounterLink />
     </div>
   );
 }

@@ -2,20 +2,23 @@ import React, { useState } from "react";
 import "./App.css";
 
 function Counter() {
-  const [count, setCount] = useState(0);
+  const [state, setState] = useState({
+    a: 1,
+  });
 
   const handleClick = function (e) {
     e.preventDefault();
-    setCount(10);
+    setState((state) => {
+      return { ...state, count: 10 };
+    });
   };
 
-  return <button onClick={handleClick}>Nombre : {count}</button>;
+  return <div onClick={handleClick}>{JSON.stringify(state)}</div>;
 }
 
 function App() {
   return (
     <div>
-      <Counter />
       <Counter />
       <Counter />
     </div>
